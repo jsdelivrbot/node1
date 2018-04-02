@@ -158,7 +158,7 @@ router.post('/authenticate', (req, res, next) => {
     }
 	if (req.body.email && req.body.email === 'email' && req.body.password && req.body.password === 'password') {
 			req.session.authenticated = true;
-			res.redirect('/secure');
+			 res.send(200)
 		} else {
 			req.flash('error', 'Username and password are incorrect');
 			res.redirect('/login');
