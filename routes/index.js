@@ -27,6 +27,11 @@ router.get('/signup', function(req, res, next) {
   res.sendFile(path.join(__dirname + '/signup.html'));
 });
 
+/* GET signup page */
+router.get('/login', function(req, res, next) {
+ // res.render('index', { title: 'Express' });
+  res.sendFile(path.join(__dirname + '/login.html'));
+});
 
 
 router.post('/api/v1/db1', (req, res, next) => {
