@@ -94,12 +94,13 @@ router.get('/Registration', (req, res, next) => {
 router.post('/createnewuser', (req, res, next) => {
   
   const data1= {email: req.body.email,  name: req.body.name, password: req.body.password};
-  console.log(data1);
+  console.log('data sent' + data1);
   pool.connect(function(err, client, done) {
     
     if(err) {
       done();
       console.log(err);
+	
       return res.status(500).json({success: false, data: err});
     }
 	
