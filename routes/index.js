@@ -143,7 +143,37 @@ router.post('/createnewuser', (req, res, next) => {
   });
 }); 
 
-
+/*to authenticate user */
+router.post('/authenticate', (req, res, next) => {
+  
+  const data1= {email: req.body.email,  name: req.body.name, password: req.body.password};
+  console.log('data sent' + data1);
+  pool.connect(function(err, client, done) {
+    
+    if(err) {
+      done();
+      console.log(err);
+	
+      return res.status(500).json({success: false, data: err});
+    }
+	if (req.body.email && req.body.email === 'email' && req.body.password && req.body.password === 'password') {
+			req.session.authenticated = true;
+			res.redirect('/secure');
+		} else {
+			req.flash('error', 'Username and password are incorrect');
+			res.redirect('/login');
+		}
+	 
+	
+	
+  
+	
+    
+  
+    
+   
+  });
+}); 
 
 
 /*router.put('api/v1/db1/:db1_id', (req,res,next) => {
