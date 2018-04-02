@@ -42,7 +42,7 @@ router.post('/api/v1/db1', (req, res, next) => {
       return res.status(500).json({success: false, data: err});
     }
    
-     client.query('INSERT INTO user(name, email, password, id) values($1, $2, $3)',
+     client.query('INSERT INTO salesforce.contact(lastname, email, password__c) values($1, $2, $3)',
     [data.name, data.email, data.password]);
    
  client.query('SELECT * FROM user ORDER BY id ASC', function(err, result){
@@ -105,7 +105,7 @@ router.post('/createnewuser', (req, res, next) => {
       return res.status(500).json({success: false, data: err});
     }
 	
-	 client.query('INSERT INTO users (email, name, password) VALUES ($1, $2, $3);', [data1.email, data1.name, data1.password], function (err, result) {
+	 client.query('INSERT INTO salesforce.contact (Email, LastName, password__c) VALUES ($1, $2, $3);', [data1.email, data1.name, data1.password], function (err, result) {
       done() //this done callback signals the pg driver that the connection can be closed or returned to the connection pool
 
       if (err) {
