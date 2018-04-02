@@ -7,6 +7,7 @@ const config ={
 	user: 'fzdbdqvcsbxxnx',
 	database:'drq1nrcp0o4mq',
 	password:'642b7242b56c1be0bea176bc456db038d85e2bdbaf941a62fe0d98974a1d4ec7',
+	host: 'ec2-54-243-63-13.compute-1.amazonaws.com',
 	port:5432
 	
 };
